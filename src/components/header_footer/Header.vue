@@ -1,6 +1,6 @@
 <template>
    <header>
-        Forms
+        Sign up
    </header>
 </template>
 
