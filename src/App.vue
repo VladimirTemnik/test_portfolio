@@ -1,61 +1,51 @@
 <template>
-  <el-container id="mainPage">
-    <el-main>
-      <comp-registration>
+<v-app>
+  <router-view>
 
-      </comp-registration>
-    </el-main>
-  </el-container>
+  </router-view>
+</v-app>
+
 </template>
 
 <script>
 import { computed } from 'vue'
-import compRegistration from './components/registration/Registration.vue'
-
 export default {
   components:{
-    compRegistration,
+
   },
   data(){
     return {
-      sizes: ""
+      breakpoint: ""
       //xs < 768, sm >768,md >992, lg >1200, xl >1920
     }
   },
   provide(){
     return {
-      sizes: computed(()=>this.sizes)
+      size: computed(()=>this.breakpoint)
     }
   },
-
   mounted() {
     addEventListener("resize", ({currentTarget}) => {
       const {innerWidth} = currentTarget;
-      if (innerWidth<=768) {
-        this.sizes = "sm"
+      if (innerWidth <= 768) {
+        this.breakpoint = "xs"
       }
-      if (innerWidth>=992) {
-        this.sizes = "md"
-
+      if (innerWidth >=768 && innerWidth <= 992) {
+        this.breakpoint = "sm"
       }
-        /*case 1200: {
-          this.sizes = "lg"
-          break
-        }
-        case 1920: {
-          this.sizes = "xl"
-          break
-        }
-        default: {
-          this.sizes = "xs"
-        }*/
-
+      if (innerWidth >= 992 && innerWidth <= 1200) {
+        this.breakpoint = "md"
+      }
+      if (innerWidth >= 1200 && innerWidth <= 1920) {
+        this.breakpoint = "lg"
+      }
+      if (innerWidth >= 1920) {
+        this.breakpoint = "xl"
+      }
     })
   }
 }
-
 </script>
 
 <style scoped>
-
 </style>

@@ -4,15 +4,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite previe"
   },
   "dependencies": {
     "element-plus": "^2.2.21",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.41",
+    "vue-router": "^4.1.6",
+    "vuetify": "^3.1.3",
+    "vuex": "^4.1.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@mdi/font": "^7.1.96",
     "@vitejs/plugin-vue": "^3.1.2",
     "vite": "^3.1.8"
   }
