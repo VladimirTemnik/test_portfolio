@@ -15,7 +15,7 @@
       </v-col>
       <v-col
       cols="8">
-        <v-card-title class="pt-10 text-h3 text-white text-uppercase">{{user.firstName}} {{user.lastName}}</v-card-title>
+        <v-card-title class="pt-10 text-h3 text-white text-uppercase font-weight-black">{{user.firstName}} {{user.lastName}}</v-card-title>
         <v-card-text class="py-6 text-h5 text-white">{{user.position}}</v-card-text>
         <v-card-text class="py-0 text-white">
           <v-btn class="text-lowercase text-body-1 pl-0" v-bind="{variant:'text', href:`mailto:${user.email}`}">

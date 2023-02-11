@@ -1,22 +1,24 @@
 <template>
 <v-card
 v-bind="{flat:true}">
-  <v-list-subheader
-      class="text-h6 text-uppercase"
-      color="teal-lighten-2">
-    Languages
-  </v-list-subheader>
-  <v-list-item
-      class="text-black text-capitalize"
-      v-for="(lang, i) in user.languages"
-  >
-    {{lang.language}}
-    <br>
-    <v-progress-linear
-    v-bind="{modelValue:`${lang.score * 20}`, color:'teal-lighten-2'}">
+  <v-list>
+    <v-list-subheader
+        class="text-h6 text-uppercase font-weight-black"
+        color="teal-lighten-2">
+      Languages
+    </v-list-subheader>
+    <v-list-item
+        class="text-black text-capitalize"
+        v-for="(lang, i) in user.languages"
+    >
+      {{lang.language}}
+      <br>
+      <v-progress-linear
+          v-bind="{modelValue:`${lang.score * 20}`, color:'teal-lighten-2'}">
 
-    </v-progress-linear>
-  </v-list-item>
+      </v-progress-linear>
+    </v-list-item>
+  </v-list>
 </v-card>
 </template>
 
