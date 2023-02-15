@@ -49,6 +49,8 @@
 <script>
 import rules from '../../rules/rules.js'
 import {mapState} from "vuex"
+import {Field, Form, ErrorMessage} from "vee-validate";
+import * as yup from "yup";
 
 export default {
   inject : ["size"],

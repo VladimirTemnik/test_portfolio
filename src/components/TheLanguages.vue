@@ -1,14 +1,15 @@
 <template>
 <v-card
-v-bind="{flat:true}">
-  <v-list>
+v-bind="{flat:true,color:'transparent'}">
+  <v-list
+  bg-color="transparent">
     <v-list-subheader
         class="text-h6 text-uppercase font-weight-black"
         color="teal-lighten-2">
       Languages
     </v-list-subheader>
     <v-list-item
-        class="text-black text-capitalize"
+        class="text-white text-capitalize "
         v-for="(lang, i) in user.languages"
     >
       {{lang.language}}

@@ -69,17 +69,19 @@ const store = createStore({
                     achievement: "gratitude for being included in the list of the best employees of the profession 3 months in a row"
                 }
             ],
-            profile: "",
+            profile: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad esse ex maiores nisi possimus quam reiciendis vero. Aperiam dolore facere maxime omnis porro saepe voluptatibus. Accusantium eaque explicabo ipsa magnam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos harum incidunt non officia placeat. Ab accusamus ad delectus fugiat in laboriosam odit possimus quos ratione repellendus repudiandae, sapiente tempora tempore!",
             courses:[
                 {
                     source: "ITVDN",
                     program: "Front-End developer 2022",
-                    period: "July 2022 - Jan. 2023"
+                    period: "July 2022 - Jan. 2023",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad esse ex maiores nisi possimus quam reiciendis vero. Aperiam dolore facere maxime omnis porro saepe voluptatibus."
                 },
                 {
                     source: "Udemy",
                     program: "The complete VUE.JS course. 2022 edition",
-                    period: "Sept. 2022 - Dec. 2022"
+                    period: "Sept. 2022 - Dec. 2022",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad esse ex maiores nisi possimus quam reiciendis vero. Aperiam dolore facere maxime omnis porro saepe voluptatibus."
                 }
             ],
         }

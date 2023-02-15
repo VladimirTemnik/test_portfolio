@@ -1,99 +1,75 @@
 <template>
 
-  <v-card
-  class="bg-teal-lighten-2 rounded-lg">
-    <v-row>
-      <v-col
-      cols="4"
-      class="d-flex justify-center">
-        <v-avatar
-        size="170"
-        class="mt-10 border">
-          <v-img src="https://via.placeholder.com/150">
-          </v-img>
-        </v-avatar>
-      </v-col>
-      <v-col
-      cols="8">
-        <v-card-title class="pt-10 text-h3 text-white text-uppercase font-weight-black">{{user.firstName}} {{user.lastName}}</v-card-title>
-        <v-card-text class="py-6 text-h5 text-white">{{user.position}}</v-card-text>
-        <v-card-text class="py-0 text-white">
-          <v-btn class="text-lowercase text-body-1 pl-0" v-bind="{variant:'text', href:`mailto:${user.email}`}">
-            <v-icon class="mr-2">
-              mdi-email-outline
-            </v-icon>
-            {{user.email}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0 text-white">
-          <v-btn class="pl-0 text-body-1" v-bind="{variant: 'text', href:`tel:${user.phoneNumber}`}">
-            <v-icon class="mr-2">
-              mdi-phone
-            </v-icon>
-            {{user.phoneNumber}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0 text-body-1 text-white">
-          <v-btn class="pl-0 text-body-1" v-bind="{variant: 'text'}">
-            <v-icon class="mr-2">
-              mdi-home
-            </v-icon>
-            {{user.address}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0 text-body-1 text-white">
-          <v-btn class="pl-0 text-body-1" v-bind="{variant: 'text'}">
-            <v-icon class="mr-2">
-              mdi-calendar-month
-            </v-icon>
-            {{user.birthday}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0 text-body-1 text-white">
-          <v-btn class="pl-0 text-body-1 text-capitalize" v-bind="{variant: 'text'}">
-            <v-icon class="mr-2">
-              mdi-gender-male-female
-            </v-icon>
-            {{user.gender}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0 text-body-1 text-white">
-          <v-btn class="pl-0 text-body-1 text-capitalize" v-bind="{variant: 'text'}">
-            <v-icon class="mr-2">
-              mdi-account-multiple
-            </v-icon>
-            {{user.relationship}}
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="py-0  text-white">
-          <v-icon class="mr-2">
-            mdi-github
-          </v-icon>
-          <v-btn class="text-capitalize pl-0 text-body-1" v-bind="{variant:'text', href:user.socialNW.github}">
-            GitHub
-          </v-btn>
-        </v-card-text>
-        <v-card-text class="pb-5 pt-0 text-white">
-          <v-icon class="mr-2">
-            mdi-linkedin
-          </v-icon>
-          <v-btn class="text-capitalize text-body-1 pl-0" v-bind:href="user.socialNW.linkedIn" variant="text">
-            LinkedIn
-          </v-btn>
-        </v-card-text>
-      </v-col>
-    </v-row>
-  </v-card>
+<!--  <template v-if="md">
+    <v-card class="bg-teal-lighten-2 rounded-lg"
+    >
+      <v-row>
+        <v-row>
+          <v-col
+          class="d-flex justify-center">
+            <comp-the-main-avatar></comp-the-main-avatar>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            {{md}}
+            <comp-the-main-info-card></comp-the-main-info-card>
+          </v-col>
+        </v-row>
+      </v-row>
+    </v-card>
+  </template>
+
+  <template v-else>
+    <v-card
+    class="bg-teal-lighten-2 rounded-lg">
+      <v-row>
+        <v-col
+            cols="4"
+            class="d-flex justify-center">
+          <comp-the-main-avatar></comp-the-main-avatar>
+        </v-col>
+        <v-col
+            cols="8">
+          <comp-the-main-info-card></comp-the-main-info-card>
+        </v-col>
+      </v-row>
+    </v-card>
+  </template>-->
+
+
+    <v-card
+        class="bg-teal-lighten-2 rounded-lg">
+      <v-row>
+        <v-col
+            cols="12"
+            md="4"
+            class="d-flex justify-center">
+          <comp-the-main-avatar></comp-the-main-avatar>
+        </v-col>
+        <v-col
+        cols="12"
+        md="8">
+
+          <comp-the-main-info-card></comp-the-main-info-card>
+        </v-col>
+      </v-row>
+    </v-card>
 
 
 </template>
 
 <script>
+import {useDisplay} from "vuetify";
 import {mapState} from "vuex"
+import compTheMainInfoCard from '@/components/TheMainInfoCard.vue'
+import compTheMainAvatar from '@/components/TheMainAvatar.vue'
+
 
 export default {
   components: {
-
+    compTheMainAvatar,
+    compTheMainInfoCard,
   },
   data(){
     return {
@@ -102,6 +78,11 @@ export default {
   },
   computed: {
     ...mapState(["user"]),
+    md() {
+      const {md} = useDisplay();
+      console.log(md)
+      return md.value;
+    }
   },
   methods: {
 
@@ -110,11 +91,6 @@ export default {
 </script>
 
 <style scoped>
-#first{
-  background-color: #9DB1CC;
-}
-#second{
-  background-color: green;
-}
+
 
 </style>
