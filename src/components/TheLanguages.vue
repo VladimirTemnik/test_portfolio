@@ -10,12 +10,12 @@ v-bind="{flat:true,color:'transparent'}">
     </v-list-subheader>
     <v-list-item
         class="text-white text-capitalize "
-        v-for="(lang, i) in user.languages"
+        v-for="item in languages"
     >
-      {{lang.language}}
+      {{item.language}}
       <br>
       <v-progress-linear
-          v-bind="{modelValue:`${lang.score * 20}`, color:'teal-lighten-2'}">
+          v-bind="{modelValue:`${item.score * 20}`, color:'teal-lighten-2'}">
 
       </v-progress-linear>
     </v-list-item>
@@ -24,22 +24,7 @@ v-bind="{flat:true,color:'transparent'}">
 </template>
 
 <script scoped>
-import {mapState} from "vuex"
-
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props:['languages']
 }
 </script>

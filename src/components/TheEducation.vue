@@ -6,17 +6,17 @@ v-bind="{flat:true}">
       color="teal-lighten-2">
       Education
   </v-card-title>
-  <v-card v-for="education in user.education">
+  <v-card v-for="item in education">
     <v-card-title
-      class="d-flex flex-row justify-space-between text-md-body-2">
-      <p>{{education.degree}}</p>
-      <p>{{education.period}}</p>
+      class="d-flex flex-row justify-space-between ">
+      <p>{{item.degree}}</p>
+      <p>{{item.period}}</p>
     </v-card-title>
     <v-card-subtitle>
-      {{education.university}},{{education.city}}
+      {{item.university}},{{item.city}}
     </v-card-subtitle>
     <v-card-text>
-      {{education.speciality}}
+      {{item.speciality}}
     </v-card-text>
   </v-card>
 
@@ -24,22 +24,8 @@ v-bind="{flat:true}">
 </template>
 
 <script>
-import {mapState} from "vuex"
-
 export default {
-  components: {
+  props:['education'],
 
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
 }
 </script>

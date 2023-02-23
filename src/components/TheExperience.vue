@@ -6,39 +6,24 @@
         color="teal-lighten-2">
       Job history
     </v-card-title>
-    <v-card v-for="job in user.jobExperience">
+    <v-card v-for="item in experience">
       <v-card-title
-          class="d-flex flex-row flex-wrap justify-space-between">
-        <p>{{job.position}}</p>
-        <p>{{job.period}}</p>
+          class="d-flex flex-row flex-wrap justify-space-between text-md-body">
+        <p>{{item.position}}</p>
+        <p>{{item.period}}</p>
       </v-card-title>
       <v-card-subtitle>
-        {{job.company}},{{job.city}}
+        {{item.company}},{{item.city}}
       </v-card-subtitle>
       <v-card-text>
-        {{job.description}}
+        {{item.description}}
       </v-card-text>
     </v-card>
   </v-card>
 </template>
 
 <script>
-import {mapState} from "vuex"
-
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props:['experience'],
 }
 </script>

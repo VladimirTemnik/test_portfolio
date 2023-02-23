@@ -11,31 +11,16 @@ v-bind="{flat:true, color:'transparent'}"
     </v-list-subheader>
     <v-list-item
         class="text-white text-capitalize"
-        v-for="skill in user.skills"
+        v-for="item in skills"
     >
-      {{skill}}
+      {{item}}
     </v-list-item>
   </v-list>
 </v-card>
 </template>
 
 <script scoped>
-import {mapState} from "vuex"
-
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props: ['skills']
 }
 </script>

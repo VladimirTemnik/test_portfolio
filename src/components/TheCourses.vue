@@ -6,36 +6,25 @@
         color="teal-lighten-2">
       Courses
     </v-card-title>
-    <v-card v-for="course in user.courses">
+    <v-card v-for="item in courses">
       <v-card-title
-          class="d-flex flex-row justify-space-between">
-        <p>{{course.source}} - {{course.program}}</p>
-        <p>{{course.period}}</p>
+          class="d-flex flex-row flex-wrap justify-space-between">
+        <p>{{item.source}}</p>
+        <p>{{item.period}}</p>
       </v-card-title>
+      <v-card-subtitle>
+        <p>{{item.program}}</p>
+      </v-card-subtitle>
       <v-card-text>
-        {{course.description}}
+        {{item.description}}
       </v-card-text>
     </v-card>
   </v-card>
 </template>
 
 <script>
-import {mapState} from "vuex"
 
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props:['courses'],
 }
 </script>

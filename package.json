@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "element-plus": "^2.2.21",
+    "msw": "^1.0.1",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6",
@@ -19,5 +20,8 @@
     "@mdi/font": "^7.1.96",
     "@vitejs/plugin-vue": "^3.1.2",
     "vite": "^3.1.8"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

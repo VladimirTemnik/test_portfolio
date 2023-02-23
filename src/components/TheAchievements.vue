@@ -6,9 +6,10 @@
         color="teal-lighten-2">
       Achievements
     </v-card-title>
-    <v-card v-for="item in user.achievements">
-      <v-card-title>
-        {{item.company}}
+    <v-card v-for="item in achievements">
+      <v-card-title
+      class="">
+        {{ item.company }}
       </v-card-title>
       <v-card-text>
         {{item.achievement}}
@@ -18,22 +19,7 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
-
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props:['achievements'],
 }
 </script>

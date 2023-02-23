@@ -9,14 +9,14 @@
           color="teal-lighten-2">
         Hobby
       </v-list-subheader>
-      <v-list-item v-for="hobby in user.hobbies"
+      <v-list-item v-for="item in hobbies"
               class="text-white text-capitalize">
         <template v-slot:prepend>
           <v-icon
           color="teal-lighten-2">
             mdi-square
           </v-icon>
-          {{hobby}}
+          {{item}}
         </template>
       </v-list-item>
     </v-list>
@@ -28,19 +28,6 @@
 import {mapState} from "vuex"
 
 export default {
-  components: {
-
-  },
-  data(){
-    return {
-
-    }
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods: {
-
-  }
+  props:['hobbies'],
 }
 </script>
