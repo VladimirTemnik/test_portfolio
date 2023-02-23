@@ -7,6 +7,7 @@
     "preview": "vite previe"
   },
   "dependencies": {
+    "@vee-validate/rules": "^4.7.4",
     "element-plus": "^2.2.21",
     "msw": "^1.0.1",
     "vee-validate": "^4.7.3",

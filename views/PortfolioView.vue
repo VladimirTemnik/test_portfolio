@@ -79,7 +79,7 @@
           </v-col>
         </v-row>-->
 
-
+        <comp-the-login-form></comp-the-login-form>
       </v-col>
     </v-row>
   </v-container>
@@ -96,8 +96,10 @@ import compTheLanguages from '@/components/TheLanguages.vue'
 import compTheHobby from '@/components/TheHobby.vue'
 import compTheEducation from '@/components/TheEducation.vue'
 import compTheExperience from '@/components/TheExperience.vue'
+import compTheLoginForm from '@/components/LogIn/TheLoginForm.vue'
 export default {
   components: {
+    compTheLoginForm,
     compTheCourses,
     compTheProfile,
     compTheAchievements,
