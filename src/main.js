@@ -9,6 +9,7 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import { router } from "/router";
 import {worker} from "@/mocks/browser";
+import '@/plugins/vee-validate'
 
 const vuetify = createVuetify({
     components,

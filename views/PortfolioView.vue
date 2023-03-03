@@ -2,84 +2,82 @@
   <v-container>
     <v-row v-if="Object.keys(user).length">
       <v-col>
-<!--        <v-row>
-          <v-col>
-            <comp-the-header
-            v-bind="{
-              url:user.avatar,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              position: user.position,
-              email: user.email,
-              phoneNumber: user.phoneNumber,
-              address: user.address,
-              birthday: user.birthday,
-              gender: user.gender,
-              relationship: user.relationship,
-              gitHub: user.socialNW.github,
-              linkedIn: user.socialNW.linkedIn
-            }"
-            ></comp-the-header>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col
-          cols="12"
-          md="4"
-          >
-            <v-card
-            class="bg-grey-darken-3 rounded-lg"
-            height="100%">
-              <comp-the-skills
+          <v-row>
+            <v-col>
+              <comp-the-header
               v-bind="{
-                skills: user.skills
+                url:user.avatar,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                position: user.position,
+                email: user.email,
+                phoneNumber: user.phoneNumber,
+                address: user.address,
+                birthday: user.birthday,
+                gender: user.gender,
+                relationship: user.relationship,
+                gitHub: user.socialNW.github,
+                linkedIn: user.socialNW.linkedIn
               }"
-              ></comp-the-skills>
-              <comp-the-languages
+              ></comp-the-header>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col
+            cols="12"
+            md="4"
+            >
+              <v-card
+              class="bg-grey-darken-3 rounded-lg"
+              height="100%">
+                <comp-the-skills
+                v-bind="{
+                  skills: user.skills
+                }"
+                ></comp-the-skills>
+                <comp-the-languages
+                v-bind="{
+                  languages: user.languages
+                }"
+                ></comp-the-languages>
+                <comp-the-hobby
+                v-bind="{
+                  hobbies: user.hobbies
+                }"
+                ></comp-the-hobby>
+              </v-card>
+            </v-col>
+            <v-col
+            cols="12"
+            md="8"
+            >
+              <comp-the-education
               v-bind="{
-                languages: user.languages
+                education: user.education
               }"
-              ></comp-the-languages>
-              <comp-the-hobby
+              ></comp-the-education>
+              <comp-the-experience
               v-bind="{
-                hobbies: user.hobbies
+                experience: user.jobExperience
               }"
-              ></comp-the-hobby>
-            </v-card>
-          </v-col>
-          <v-col
-          cols="12"
-          md="8"
-          >
-            <comp-the-education
-            v-bind="{
-              education: user.education
-            }"
-            ></comp-the-education>
-            <comp-the-experience
-            v-bind="{
-              experience: user.jobExperience
-            }"
-            ></comp-the-experience>
-            <comp-the-achievements
-            v-bind="{
-              achievements: user.achievements
-            }"
-            ></comp-the-achievements>
-            <comp-the-profile
-            v-bind="{
-              profile: user.profile
-            }"
-            ></comp-the-profile>
-            <comp-the-courses
-            v-bind="{
-              courses: user.courses
-            }"
-            ></comp-the-courses>
-          </v-col>
-        </v-row>-->
-
-        <comp-the-login-form></comp-the-login-form>
+              ></comp-the-experience>
+              <comp-the-achievements
+              v-bind="{
+                achievements: user.achievements
+              }"
+              ></comp-the-achievements>
+              <comp-the-profile
+              v-bind="{
+                profile: user.profile
+              }"
+              ></comp-the-profile>
+              <comp-the-courses
+              v-bind="{
+                courses: user.courses
+              }"
+              ></comp-the-courses>
+            </v-col>
+          </v-row>
       </v-col>
     </v-row>
   </v-container>

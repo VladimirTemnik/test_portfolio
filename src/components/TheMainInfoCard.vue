@@ -1,5 +1,5 @@
 <template>
-    <v-card-title class="pt-10 text-h5  text-md-h3 text-white text-uppercase font-weight-black"
+    <v-card-title class="pt-10 text-h5 text-md-h3 text-white text-uppercase font-weight-black"
     v-bind="{
       firstName: firstName,
       lastName: lastName

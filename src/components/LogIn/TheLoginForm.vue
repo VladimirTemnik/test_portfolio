@@ -1,80 +1,112 @@
 <template>
-  <v-card class="mx-auto px-6 py-8">
-    <v-form
-      v-model="form"
-      v-on="onsubmit(submit)"
+  <v-col
+  class="my-auto"
+  v-bind="{
+    cols:'8'
+  }">
+    <v-card
+        class="mx-auto px-6 py-8 "
     >
-      <v-card-title>
-        Sign in
-      </v-card-title>
-      <v-label></v-label>
-
-      <v-text-field
-      v-model="loginData.email"
-      v-bind="{
-        rules:{
-          email:true,
-          required:true
-        },
-        label:'Enter your email',
-        clearable:true,
-    }">
-      </v-text-field>
-      <v-text-field
-          v-model="loginData.password"
-      v-bind="{
-        type: 'password',
-        rules:{
-          min:8,
-          max:14,
-          required:true
-        },
-        label: 'Enter your password'
-      }">
-      </v-text-field>
-      <div class=" flex justify-space-between">
-        <v-btn
-            v-bind="{
-        type:'submit',
-      }">
+      <v-form
+          v-model="form"
+          v-on="{
+      submit:(event)=>onSubmit(event, loginData)
+    }"
+      >
+        <v-card-title class="text-center text-h6 text-uppercase bg-teal-lighten-2 rounded-lg">
           Sign in
-        </v-btn>
-        <v-btn>
-          reset
-        </v-btn>
-      </div>
-    </v-form>
+        </v-card-title>
+        <v-label></v-label>
 
-  </v-card>
+        <Field
+            class="text-body-1 rounded-lg border-1"
+            v-model="loginData.email"
+            v-slot="props"
+            v-bind="{
+        rules: 'required|email',
+        name: 'email'}">
+          <v-text-field
+              v-model="loginData.email"
+              class="rounded-lg"
+              v-bind="{
+        type:'email',
+        label:'Enter your email',
+        errorMessages: props.errors,
+      }">
+          </v-text-field>
+        </Field>
+
+        <Field
+            v-model="loginData.password"
+            v-slot="props"
+            v-bind="{
+        name: 'password',
+        rules: 'required|min:8|max:14',
+    }">
+          <v-text-field
+              v-model="loginData.password"
+              class="rounded-lg "
+              v-bind="{
+          type: 'password',
+          name:'password',
+          label:'Enter your password',
+          errorMessages: props.errors,
+      }">
+          </v-text-field>
+        </Field>
+
+        <div class="d-flex justify-space-between">
+          <v-btn
+              class="text-h6 rounded-md bg-teal-lighten-2 "
+              v-bind="{
+      type:'submit',
+      }">
+            Sign in
+          </v-btn>
+          <v-btn
+              class="text-h6 rounded-md bg-grey-darken-1"
+          >
+            Reset
+          </v-btn>
+        </div>
+      </v-form>
+    </v-card>
+  </v-col>
 </template>
 
 <script>
-import {mapState} from "vuex"
-import {Field, Form, ErrorMessage, defineRule} from "vee-validate";
-import {min, max, required, email} from "@vee-validate/rules";
-
-defineRule('required', required);
-defineRule('min', min);
-defineRule('max', max);
-defineRule('email', email);
+import {useRouter} from "vue-router"
+import {mapActions} from "vuex"
+import {Field, Form, ErrorMessage} from "vee-validate";
 
 export default {
+  components:{
+    Field,
+    Form,
+    ErrorMessage
+  },
   computed: {
-    ...mapState(["user"]),
   },
   methods: {
-    submit(){
-      console.log(this.loginData)
-    }
+    async onSubmit(event, data){
+      event.preventDefault();
+      console.log(this.$router)
+      await this.login(data)
+      await this.$router.push('/')
+    },
+    ...mapActions(['login'])
   },
   data(){
     return {
       form: false,
       loginData: {
-        email: "",
-        password: ""
+        email: "colsl@gmail.com",
+        password: "1234qwer!"
       }
     }
   },
+  mounted() {
+    console.log(this)
+  }
 }
 </script>
