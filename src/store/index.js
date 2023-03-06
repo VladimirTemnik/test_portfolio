@@ -24,6 +24,10 @@ const store = createStore({
              localStorage.setItem('token', token.token)
              commit('setAuthorized', token)
          },
+        async logout(){
+            console.log('logged out')
+            localStorage.removeItem('token')
+        }
     },
     mutations:{
         setProfile(state, info){

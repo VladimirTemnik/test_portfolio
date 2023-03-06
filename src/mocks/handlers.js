@@ -110,5 +110,10 @@ export const handlers = [
             }),
         )
     }),
+    rest.post('/logout', (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+        )
+    }),
 ]
 
