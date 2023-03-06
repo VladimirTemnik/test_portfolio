@@ -1,9 +1,13 @@
 <template>
   <v-layout>
     <v-main>
-      <comp-the-navbar></comp-the-navbar>
+      <comp-the-navbar
+      v-on:signIn="onLoginFormShow"
+      ></comp-the-navbar>
       <v-dialog v-model="dialog">
-        <comp-the-login-form></comp-the-login-form>
+        <comp-the-login-form
+          v-on:successSubmit="onLoginFormHide"
+        ></comp-the-login-form>
       </v-dialog>
       <router-view v-slot="{ Component }">
         <template v-if="Component">
@@ -30,6 +34,14 @@ export default {
       dialog: false
     }
   },
+  methods: {
+    onLoginFormShow(){
+      this.dialog=true
+    },
+    onLoginFormHide(){
+      this.dialog=false
+    }
+  }
 }
 
 </script>
