@@ -6,8 +6,8 @@ export const handlers = [
         // Persist user's authentication in the session
         return res(
             // Respond with a 200 status code
-            ctx.status(200),
-            ctx.json({token: 'testToken'})
+            ctx.status(400),
+            //ctx.json({token: 'testToken'})
         )
     }),
     // Handles a GET /user request
@@ -113,6 +113,7 @@ export const handlers = [
     rest.post('/logout', (req, res, ctx) => {
         return res(
             ctx.status(200),
+            ctx.json({})
         )
     }),
 ]

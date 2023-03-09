@@ -1,31 +1,41 @@
 import {createStore} from "vuex"
+import axios from 'axios'
 
 const store = createStore({
     state: {
         user: {},
-        authorized: !!localStorage.getItem('token')
+        authorized: !!localStorage.getItem('token'),
+        notifications: []
     },
     actions:{
         async getPortfolio({commit}){
-            const data = await fetch('/user')
-            const info = await data.json()
-            commit('setProfile', info)
+            const {data} = await axios.get('/user')
+            commit('setProfile', data)
         },
-         async login({commit}, userData){
-             const data = await fetch('/login', {
-                 method: 'POST',
-                 body: JSON.stringify(userData),
-                 headers: {
-                     "Content-Type": "application/json",
-                 }
-             }  )
-             const token = await data.json()
-             console.log(token )
-             localStorage.setItem('token', token.token)
-             commit('setAuthorized', token)
-         },
+        async login({commit},{state}, userData){
+             try {
+                 const {data} = await axios.post('/login', {
+                     body: JSON.stringify(userData),
+                     headers: {
+                         "Content-Type": "application/json",
+                     }
+                 }  )
+                 localStorage.setItem('token', data.token)
+                 commit('setAuthorized', data.token)
+             }
+             catch (error) {
+                 commit('setNotification', {
+                    type:'error',
+                    message: error.message
+                 })
+             }
+        },
         async logout(){
-            console.log('logged out')
+            const {data} = await axios.post('/logout', {
+                header: {
+                    "Content-Type": "application/json"
+                }
+            })
             localStorage.removeItem('token')
         }
     },
@@ -35,6 +45,9 @@ const store = createStore({
         },
         setAuthorized(state, token){
             state.authorized = !!token
+        },
+        setNotification(state, notification){
+            state.notifications.push(notification)
         }
     }
 })

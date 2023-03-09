@@ -15,7 +15,7 @@
     </v-btn>
     <v-btn
         class="text-h6 rounded-md bg-grey-darken-3 mr-10"
-        v-on:click="logOut()"
+        v-on:click="logOut"
         v-bind="{
         prependIcon: 'mdi-logout',
         variant: 'elevated',
@@ -27,12 +27,14 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
 export default {
   methods:{
     async logOut(){
       await this.logout()
       await this.$router.push('/login')
-    }
+    },
+    ...mapActions(['logout'])
   }
 }
 </script>
