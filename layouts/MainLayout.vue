@@ -21,26 +21,18 @@
   </v-layout>
 </template>
 
-<script>
-import CompTheNavbar from '@/components/TheNavbar.vue'
-import CompTheLoginForm from '@/components/LogIn/TheLoginForm.vue'
-export default {
-  components: {
-    CompTheNavbar,
-    CompTheLoginForm
-  },
-  data(){
-    return {
-      dialog: false
-    }
-  },
-  methods: {
-    onLoginFormShow(){
-      this.dialog=true
-    },
-    onLoginFormHide(){
-      this.dialog=false
-    }
-  }
+<script setup>
+import {ref} from 'vue'
+import CompTheNavbar from '@/components/optionalAPI/TheNavbar.vue'
+import CompTheLoginForm from '@/components/optionalAPI/LogIn/TheLoginForm.vue'
+
+const dialog = ref(false)
+
+function onLoginFormShow(){
+  dialog.value=true
 }
+function onLoginFormHide(){
+  dialog.value=false
+}
+
 </script>

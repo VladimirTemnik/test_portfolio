@@ -35,9 +35,8 @@
 </template>
 
 <script>
-import {useDisplay} from "vuetify";
-import compTheMainInfoCard from '@/components/TheMainInfoCard.vue'
-import compTheMainAvatar from '@/components/TheMainAvatar.vue'
+import compTheMainInfoCard from '@/components/optionalAPI/TheMainInfoCard.vue'
+import compTheMainAvatar from '@/components/optionalAPI/TheMainAvatar.vue'
 
 
 export default {
@@ -45,14 +44,6 @@ export default {
   components: {
     compTheMainAvatar,
     compTheMainInfoCard,
-  },
-
-  computed: {
-    md() {
-      const {md} = useDisplay();
-      console.log(md)
-      return md.value;
-    }
   },
 }
 </script>

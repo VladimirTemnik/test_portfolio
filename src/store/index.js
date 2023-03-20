@@ -37,6 +37,9 @@ const store = createStore({
                 }
             })
             localStorage.removeItem('token')
+        },
+        async removeNotification({commit}, id){
+            commit('deleteNotification', id)
         }
     },
     mutations:{
@@ -48,6 +51,9 @@ const store = createStore({
         },
         setNotification(state, notification){
             state.notifications.push(notification)
+        },
+        deleteNotification(state, id){
+            state.notifications.splice(id, 1)
         }
     }
 })

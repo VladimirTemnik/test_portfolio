@@ -1,12 +1,15 @@
 <template>
   <v-alert
+    v-model="visibility"
     v-bind="{
       modelValue,
       location: 'bottom',
       position: 'fixed',
-      type: item.type
+      type: item.type,
+      closable: true
     }"
-  }>
+    v-on:update:modelValue="onClose"
+  >
     {{item.message}}
   </v-alert>
 </template>
@@ -15,7 +18,9 @@
 export default {
   data(){
     return{
-      timerId: null
+      timerId: null,
+      visibility: true,
+
     }
   },
   props:{
@@ -32,10 +37,23 @@ export default {
     },
     duration: {
       type: Number,
-      default: 3000}
+      default: 3000},
+    id: {
+      type: Number,
+      required: true
+    }
+  },
+  methods:{
+    onClose(){
+      console.log(this.visibility)
+      this.$emit('close', this.id)
+    }
   },
   mounted() {
-
+    this.timerId =  setTimeout(()=>this.$emit('close', this.id), 3000)
   },
+  unmounted() {
+    clearTimeout(this.timerId)
+  }
 }
 </script>

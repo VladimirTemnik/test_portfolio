@@ -85,16 +85,16 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-import compTheCourses from '@/components/TheCourses.vue'
-import compTheProfile from '@/components/TheProfile.vue'
-import compTheAchievements from '@/components/TheAchievements.vue'
-import compTheHeader from '@/components/TheHeader.vue'
-import compTheSkills from '@/components/TheSkills.vue'
-import compTheLanguages from '@/components/TheLanguages.vue'
-import compTheHobby from '@/components/TheHobby.vue'
-import compTheEducation from '@/components/TheEducation.vue'
-import compTheExperience from '@/components/TheExperience.vue'
-import compTheLoginForm from '@/components/LogIn/TheLoginForm.vue'
+import compTheCourses from '@/components/optionalAPI/TheCourses.vue'
+import compTheProfile from '@/components/optionalAPI/TheProfile.vue'
+import compTheAchievements from '@/components/optionalAPI/TheAchievements.vue'
+import compTheHeader from '@/components/optionalAPI/TheHeader.vue'
+import compTheSkills from '@/components/optionalAPI/TheSkills.vue'
+import compTheLanguages from '@/components/optionalAPI/TheLanguages.vue'
+import compTheHobby from '@/components/optionalAPI/TheHobby.vue'
+import compTheEducation from '@/components/optionalAPI/TheEducation.vue'
+import compTheExperience from '@/components/optionalAPI/TheExperience.vue'
+import compTheLoginForm from '@/components/optionalAPI/LogIn/TheLoginForm.vue'
 export default {
   components: {
     compTheLoginForm,

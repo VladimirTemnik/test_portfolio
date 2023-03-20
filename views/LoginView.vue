@@ -8,19 +8,7 @@
   </v-container>
 </template>
 
-<script>
-import {mapActions, mapState} from "vuex";
-import compTheLoginForm from '@/components/LogIn/TheLoginForm.vue'
+<script setup>
+import CompTheLoginForm from '@/components/optionalAPI/LogIn/TheLoginForm.vue'
 
-export default {
-  components: {
-    compTheLoginForm,
-  },
-  computed: {
-    ...mapState(["user"]),
-  },
-  methods:{
-    ...mapActions(['getPortfolio'])
-  }
-}
 </script>

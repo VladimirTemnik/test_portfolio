@@ -1,6 +1,6 @@
 <template>
   <v-row
-  class="d-flex justify-center">
+      class="d-flex justify-center">
     <v-col
         class="my-auto"
         v-bind="{
@@ -77,40 +77,27 @@
   </v-row>
 </template>
 
-<script>
-import {useRouter} from "vue-router"
-import {mapActions} from "vuex"
+<script setup>
 import {Field, Form, ErrorMessage} from "vee-validate";
+import {useStore} from '@/store/store'
+import {useRouter} from "vue-router"
+import {ref, defineEmits} from 'vue'
 
-export default {
-  components:{
-    Field,
-    Form,
-    ErrorMessage
-  },
-  computed: {
-  },
-  methods: {
-    async onSubmit(event, data){
-      event.preventDefault();
-      console.log(this.$router)
-      await this.login(data)
-      this.$emit('successSubmit')
-      await this.$router.push('/')
-    },
-    ...mapActions(['login'])
-  },
-  data(){
-    return {
-      form: false,
-      loginData: {
-        email: "colsl@gmail.com",
-        password: "1234qwer!"
-      }
-    }
-  },
-  mounted() {
-    console.log(this)
-  }
+const store = useStore()
+const form  =ref(false)
+const router = useRouter()
+const emit = defineEmits(['successSubmit'])
+
+const loginData = {
+  email: "cocacola@gmail.com",
+  password: '1234qwer'
 }
+const onSubmit = async function(event, data) {
+  event.preventDefault();
+  console.log(this.$router);
+  await store.login(data);
+  emit("successSubmit")
+  await router.push('/')
+}
+
 </script>
