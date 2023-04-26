@@ -84,15 +84,15 @@
 </template>
 
 <script setup>
-import CompTheCourses from '@/components/optionalAPI/TheCourses.vue'
-import CompTheProfile from '@/components/optionalAPI/TheProfile.vue'
-import CompTheAchievements from '@/components/optionalAPI/TheAchievements.vue'
-import CompTheHeader from '@/components/optionalAPI/TheHeader.vue'
-import CompTheSkills from '@/components/optionalAPI/TheSkills.vue'
-import CompTheLanguages from '@/components/optionalAPI/TheLanguages.vue'
-import CompTheHobby from '@/components/optionalAPI/TheHobby.vue'
-import CompTheEducation from '@/components/optionalAPI/TheEducation.vue'
-import CompTheExperience from '@/components/optionalAPI/TheExperience.vue'
+import CompTheCourses from '@/components/compositionAPI/_TheCourses.vue'
+import CompTheProfile from '@/components/compositionAPI/_TheProfile.vue'
+import CompTheAchievements from '@/components/compositionAPI/_TheAchievements.vue'
+import CompTheHeader from '@/components/compositionAPI/_TheHeader.vue'
+import CompTheSkills from '@/components/compositionAPI/_TheSkills.vue'
+import CompTheLanguages from '@/components/compositionAPI/_TheLanguages.vue'
+import CompTheHobby from '@/components/compositionAPI/_TheHeader.vue'
+import CompTheEducation from '@/components/compositionAPI/_TheEducation.vue'
+import CompTheExperience from '@/components/compositionAPI/_TheExperience.vue'
 import {useStore} from '@/store/store'
 import {onMounted} from "vue";
 

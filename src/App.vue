@@ -21,7 +21,6 @@
     </template>
   </div>
 </v-app>
-
 </template>
 
 <script>

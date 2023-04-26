@@ -33,6 +33,22 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "about" */ "../layouts/MainLayout.vue"),
     },
+    {
+        path: "/registration",
+        meta: {protected: false},
+        children: [
+            {
+                path: "",
+                name: "registration",
+                component: () =>
+                    import(
+                        /* webpackChunkName: "about" */ "../views/RegistrationView.vue"
+                        ),
+            },
+        ],
+        component: () =>
+            import(/* webpackChunkName: "about" */ "../layouts/MainLayout.vue"),
+    },
 ];
 
 export const router = createRouter({

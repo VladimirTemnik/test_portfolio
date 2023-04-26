@@ -4,16 +4,18 @@
     <v-col
         class="my-auto"
         v-bind="{
-    cols:'8'
-  }">
+          cols:'8'
+        }"
+    >
       <v-card
           class="mx-auto px-6 py-8 mt-16"
       >
         <v-form
-            v-model="form"
-            v-on="{
-      submit:(event)=>onSubmit(event, loginData)
-    }"
+          ref="form"
+          v-model="form"
+          v-on="{
+            submit:(event)=>onSubmit(event, loginData)
+          }"
         >
           <v-card-title class="text-center text-h6 text-uppercase bg-teal-lighten-2 rounded-lg">
             Sign in
@@ -59,19 +61,32 @@
 
           <div class="d-flex justify-space-between">
             <v-btn
-                class="text-h6 rounded-md bg-teal-lighten-2 "
-                v-bind="{
-      type:'submit',
-      }">
+            class="text-h6 rounded-md bg-teal-lighten-2 "
+            v-bind="{
+              type:'submit',
+            }">
               Sign in
             </v-btn>
             <v-btn
-                class="text-h6 rounded-md bg-grey-darken-1"
+            class="text-h6 rounded-md bg-grey-darken-1"
+            v-on:click="onReset"
             >
               Reset
             </v-btn>
           </div>
         </v-form>
+        <v-btn
+            v-bind="{
+              variant: 'text',
+              block: true,
+              elevation: 2,
+              color: 'deep-purple-darken-1'
+            }"
+            class="text-body-1 mt-4"
+            v-on:click="onRegister"
+        >
+          Register new account
+        </v-btn>
       </v-card>
     </v-col>
   </v-row>
@@ -91,11 +106,16 @@ export default {
   methods: {
     async onSubmit(event, data){
       event.preventDefault();
-      console.log(this.$router)
       await this.login(data)
       this.$emit('successSubmit')
       await this.$router.push('/')
     },
+    onReset(){
+      this.$refs.form.reset()
+    },
+    onRegister(){
+      this.$router.push('/registration')
+},
     ...mapActions(['login'])
   },
   data(){

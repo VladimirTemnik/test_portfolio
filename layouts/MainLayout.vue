@@ -23,8 +23,8 @@
 
 <script setup>
 import {ref} from 'vue'
-import CompTheNavbar from '@/components/optionalAPI/TheNavbar.vue'
-import CompTheLoginForm from '@/components/optionalAPI/LogIn/TheLoginForm.vue'
+import CompTheNavbar from '@/components/compositionAPI/_TheNavbar.vue'
+import CompTheLoginForm from '@/components/compositionAPI/login/_TheLoginForm.vue'
 
 const dialog = ref(false)
 
